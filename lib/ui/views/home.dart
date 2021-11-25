@@ -1,4 +1,7 @@
+import 'dart:js' as js;
+
 import 'package:flutter/material.dart';
+import 'package:portfolio/ui/widgets/description_text.dart';
 import 'package:portfolio/ui/widgets/spacer.dart';
 
 class HomeView extends StatelessWidget {
@@ -27,7 +30,7 @@ class _DesktopHomeView extends StatelessWidget {
         ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(right:50),
+            padding: const EdgeInsets.only(right: 50),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -48,14 +51,19 @@ class _DesktopHomeView extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   const SpacerWidget.vertical(height: 50),
-                  Text(
-                    'A Mobile application developer with 5+ years of experience in Software Development, Application Maintenance and Support and Project Execution in Android and iOS using Flutter and Xamarin.',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6!
-                        .copyWith(height: 1.5),
-                    textAlign: TextAlign.justify,
-                  ),
+                  const DescriptionText(
+                      'A Mobile application developer with 5+ years of experience in Software Development, Application Maintenance and Support and Project Execution in Android and iOS using Flutter and Xamarin.'),
+                  const SpacerWidget.vertical(height: 50),
+                  OutlinedButton(
+                    child: Text(
+                      'Resume',
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                    onPressed: () {
+                      js.context.callMethod(
+                          'open', ['https://drive.google.com/file/d/16YmjqhkD09tRGnVxZSX8xu4CHePSiGGR/view?usp=sharing']);
+                    },
+                  )
                   // Text(
                   //   'Bring your brand to life with our help.',
                   //   style: Theme.of(context).textTheme.headline1,
