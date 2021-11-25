@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/ui/widgets/spacer.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({ Key? key }) : super(key: key);
+  const HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
 }
 
 class _DesktopHomeView extends StatelessWidget {
-  const _DesktopHomeView({ Key? key }) : super(key: key);
+  const _DesktopHomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,11 @@ class _DesktopHomeView extends StatelessWidget {
       children: [
         Align(
           alignment: Alignment.bottomCenter,
-          child: Image.asset('assets/images/photo.png', width: MediaQuery.of(context).size.width * 0.5,)),
+          child: Image.asset(
+            'assets/images/photo.png',
+            width: MediaQuery.of(context).size.width * 0.5,
+          ),
+        ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(10),
@@ -35,7 +39,11 @@ class _DesktopHomeView extends StatelessWidget {
                   const SpacerWidget.vertical(),
                   Text('Flutter Developer', style: Theme.of(context).textTheme.headline6,),
                   const SpacerWidget.vertical(height: 50),
-                  Text('You will begin to realise why this exercise is called the Dickens Pattern (with reference to the ghost showing Scrooge some different futures)', style: Theme.of(context).textTheme.headline6,),
+                  Text('A Mobile application developer with 5+ years of experience in Software Development, Application Maintenance and Support and Project Execution in Android and iOS using Flutter and Xamarin.', style: Theme.of(context).textTheme.headline6,),
+                  // Text(
+                  //   'Bring your brand to life with our help.',
+                  //   style: Theme.of(context).textTheme.headline1,
+                  // )
                 ],
               ),
             ),

@@ -18,24 +18,30 @@ class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              AppTheme.primaryColor,
-              AppTheme.secondaryColor,
-            ],
+      body: Stack(
+        children: [
+          Container(
+             width: double.infinity,
+            height: double.infinity,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  AppTheme.primaryColor,
+                  AppTheme.secondaryColor,
+                ],
+              ),
+            ),
           ),
-        ),
-        child: Column(
-          children: [
-            CustomAppBar(menuCallBack: _onChangeMenu),
-            _buildContent(),
-            const FooterWidget(),
-          ],
-        ),
+          Positioned.fill(
+            child: Column(
+              children: [
+                CustomAppBar(menuCallBack: _onChangeMenu),
+                _buildContent(),
+                const FooterWidget(),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -49,7 +55,7 @@ class _LandingScreenState extends State<LandingScreen> {
           height: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Colors.white,
+            color: Colors.white.withOpacity(0.4),
           ),
           child: _getContent(),
         ),

@@ -9,8 +9,10 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _DesktopAppBar(menuCallBack: menuCallBack,);
-    return  Padding(
+    _DesktopAppBar(
+      menuCallBack: menuCallBack,
+    );
+    return Padding(
       padding: const EdgeInsets.all(20.0),
       child: _DesktopAppBar(menuCallBack: menuCallBack),
       // child:  _MobileAppBar(),
@@ -20,7 +22,8 @@ class CustomAppBar extends StatelessWidget {
 
 class _DesktopAppBar extends StatelessWidget {
   final Function(Menu) menuCallBack;
-  const _DesktopAppBar({Key? key, required this.menuCallBack}) : super(key: key);
+  const _DesktopAppBar({Key? key, required this.menuCallBack})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +39,9 @@ class _DesktopAppBar extends StatelessWidget {
         Container(
           height: 50,
           width: 50,
-          decoration: const BoxDecoration(
-            color: AppTheme.secondaryColor,
-            borderRadius: BorderRadius.only(
+          decoration: BoxDecoration(
+            color: AppTheme.secondaryColor.withOpacity(0.5),
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(40),
               bottomLeft: Radius.circular(40),
               topRight: Radius.circular(40),
@@ -47,7 +50,13 @@ class _DesktopAppBar extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.all(10),
-            child: Text('PS', style: Theme.of(context).textTheme.headline5!.copyWith(color: AppTheme.primaryColor),),
+            child: Text(
+              'PS',
+              style: Theme.of(context)
+                  .textTheme
+                  .headline5!
+                  .copyWith(color: AppTheme.primaryColor),
+            ),
           ),
         ),
         const Spacer(),
@@ -58,13 +67,16 @@ class _DesktopAppBar extends StatelessWidget {
 }
 
 class _MobileAppBar extends StatelessWidget {
-  const _MobileAppBar({ Key? key }) : super(key: key);
+  const _MobileAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-   return Row(
+    return Row(
       children: [
-        const Icon(Icons.menu, color: AppTheme.white,),
+        const Icon(
+          Icons.menu,
+          color: AppTheme.white,
+        ),
         const Spacer(),
         Text(
           'PACKIASEELAN',
@@ -73,7 +85,6 @@ class _MobileAppBar extends StatelessWidget {
               .headline4!
               .copyWith(color: AppTheme.white),
         ),
-        
       ],
     );
   }
