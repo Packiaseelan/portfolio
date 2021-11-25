@@ -27,7 +27,7 @@ class _DesktopHomeView extends StatelessWidget {
         ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.only(right:50),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -50,7 +50,11 @@ class _DesktopHomeView extends StatelessWidget {
                   const SpacerWidget.vertical(height: 50),
                   Text(
                     'A Mobile application developer with 5+ years of experience in Software Development, Application Maintenance and Support and Project Execution in Android and iOS using Flutter and Xamarin.',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6!
+                        .copyWith(height: 1.5),
+                    textAlign: TextAlign.justify,
                   ),
                   // Text(
                   //   'Bring your brand to life with our help.',
