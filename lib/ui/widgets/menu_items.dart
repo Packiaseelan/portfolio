@@ -3,7 +3,8 @@ import 'package:portfolio/ui/utils/enumerations.dart';
 
 class MenuItems extends StatelessWidget {
   final Function(Menu) menuCallBack;
-  const MenuItems({Key? key, required this.menuCallBack}) : super(key: key);
+  final Menu selectedMenu;
+  const MenuItems({Key? key, required this.menuCallBack, required this.selectedMenu}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class MenuItems extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   e.title,
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: e == selectedMenu ? Theme.of(context).textTheme.headline5 : Theme.of(context).textTheme.subtitle1,
                 ),
               ),
             ),

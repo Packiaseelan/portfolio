@@ -35,7 +35,7 @@ class _LandingScreenState extends State<LandingScreen> {
           Positioned.fill(
             child: Column(
               children: [
-                CustomAppBar(menuCallBack: _onChangeMenu),
+                CustomAppBar(menuCallBack: _onChangeMenu, selectedMenu: selectedMenu),
                 _buildContent(),
                 const FooterWidget(),
               ],

@@ -5,16 +5,19 @@ import 'package:portfolio/ui/widgets/menu_items.dart';
 
 class CustomAppBar extends StatelessWidget {
   final Function(Menu) menuCallBack;
-  const CustomAppBar({Key? key, required this.menuCallBack}) : super(key: key);
+  final Menu selectedMenu;
+  const CustomAppBar(
+      {Key? key, required this.menuCallBack, required this.selectedMenu})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    _DesktopAppBar(
-      menuCallBack: menuCallBack,
-    );
     return Padding(
       padding: const EdgeInsets.all(20.0),
-      child: _DesktopAppBar(menuCallBack: menuCallBack),
+      child: _DesktopAppBar(
+        menuCallBack: menuCallBack,
+        selectedMenu: selectedMenu,
+      ),
       // child:  _MobileAppBar(),
     );
   }
@@ -22,7 +25,9 @@ class CustomAppBar extends StatelessWidget {
 
 class _DesktopAppBar extends StatelessWidget {
   final Function(Menu) menuCallBack;
-  const _DesktopAppBar({Key? key, required this.menuCallBack})
+  final Menu selectedMenu;
+  const _DesktopAppBar(
+      {Key? key, required this.menuCallBack, required this.selectedMenu})
       : super(key: key);
 
   @override
@@ -60,7 +65,7 @@ class _DesktopAppBar extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        MenuItems(menuCallBack: menuCallBack),
+        MenuItems(menuCallBack: menuCallBack, selectedMenu: selectedMenu),
       ],
     );
   }

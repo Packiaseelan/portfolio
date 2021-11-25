@@ -36,26 +36,11 @@ class AppTheme {
         iconTheme: const IconThemeData(color: primaryColor),
       ),
       textTheme: theme.textTheme.copyWith(
-          // headline1: const TextStyle(
-          //   color: primaryTextColor,
-          //   fontWeight: FontWeight.bold,
-          //   fontSize: 32,
-          // ),
-          // headline2: const TextStyle(
-          //   color: primaryTextColorLight,
-          //   fontWeight: FontWeight.bold,
-          //   fontSize: 32,
-          // ),
-          // headline3: const TextStyle(
-          //   color: primaryTextColorLight,
-          //   fontWeight: FontWeight.w600,
-          //   fontSize: 20,
-          // ),
           headline4: const TextStyle(
             color: primaryTextColorLight,
           ),
           headline5: const TextStyle(
-            color: primaryTextColorLight,
+            color: primaryColor,
           ),
           headline6: const TextStyle(
             color: primaryTextColorLight,
