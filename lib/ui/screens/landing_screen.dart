@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/config/app_theme.dart';
 import 'package:portfolio/ui/utils/enumerations.dart';
 import 'package:portfolio/ui/views/views.dart';
 import 'package:portfolio/ui/widgets/custom_app_bar.dart';
@@ -23,8 +24,8 @@ class _LandingScreenState extends State<LandingScreen> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFF766ff7),
-              Color(0xFFa1effd),
+              AppTheme.primaryColor,
+              AppTheme.secondaryColor,
             ],
           ),
         ),

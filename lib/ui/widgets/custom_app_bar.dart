@@ -26,12 +26,29 @@ class _DesktopAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          'PACKIASEELAN',
-          style: Theme.of(context)
-              .textTheme
-              .headline4!
-              .copyWith(color: AppTheme.white),
+        // Text(
+        //   'PACKIASEELAN',
+        //   style: Theme.of(context)
+        //       .textTheme
+        //       .headline4!
+        //       .copyWith(color: AppTheme.white),
+        // ),
+        Container(
+          height: 50,
+          width: 50,
+          decoration: const BoxDecoration(
+            color: AppTheme.secondaryColor,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40),
+              bottomLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
+              bottomRight: Radius.circular(15),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text('PS', style: Theme.of(context).textTheme.headline5!.copyWith(color: AppTheme.primaryColor),),
+          ),
         ),
         const Spacer(),
         MenuItems(menuCallBack: menuCallBack),

@@ -24,18 +24,20 @@ class _DesktopHomeView extends StatelessWidget {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('HELLO EVERYBODY, I AM', style: Theme.of(context).textTheme.headline6,),
-                const SpacerWidget.vertical(),
-                Text('PACKIASEELAN', style: Theme.of(context).textTheme.headline4,),
-                const SpacerWidget.vertical(),
-                Text('Senior Associate Technology L1', style: Theme.of(context).textTheme.headline6,),
-                const SpacerWidget.vertical(height: 50),
-                Text('You will begin to realise why this exercise is called the Dickens Pattern (with reference to the ghost showing Scrooge some different futures)', style: Theme.of(context).textTheme.headline6,),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('HELLO EVERYBODY, I AM', style: Theme.of(context).textTheme.headline6,),
+                  const SpacerWidget.vertical(),
+                  Text('PACKIASEELAN', style: Theme.of(context).textTheme.headline4,),
+                  const SpacerWidget.vertical(),
+                  Text('Flutter Developer', style: Theme.of(context).textTheme.headline6,),
+                  const SpacerWidget.vertical(height: 50),
+                  Text('You will begin to realise why this exercise is called the Dickens Pattern (with reference to the ghost showing Scrooge some different futures)', style: Theme.of(context).textTheme.headline6,),
+                ],
+              ),
             ),
           ),
         )
