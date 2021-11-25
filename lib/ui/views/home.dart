@@ -33,13 +33,25 @@ class _DesktopHomeView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('HELLO EVERYBODY, I AM', style: Theme.of(context).textTheme.headline6,),
+                  Text(
+                    'HELLO EVERYBODY, I AM',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
                   const SpacerWidget.vertical(),
-                  Text('PACKIASEELAN', style: Theme.of(context).textTheme.headline4,),
+                  Text(
+                    'PACKIASEELAN',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
                   const SpacerWidget.vertical(),
-                  Text('Flutter Developer', style: Theme.of(context).textTheme.headline6,),
+                  Text(
+                    'Flutter Developer',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
                   const SpacerWidget.vertical(height: 50),
-                  Text('A Mobile application developer with 5+ years of experience in Software Development, Application Maintenance and Support and Project Execution in Android and iOS using Flutter and Xamarin.', style: Theme.of(context).textTheme.headline6,),
+                  Text(
+                    'A Mobile application developer with 5+ years of experience in Software Development, Application Maintenance and Support and Project Execution in Android and iOS using Flutter and Xamarin.',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
                   // Text(
                   //   'Bring your brand to life with our help.',
                   //   style: Theme.of(context).textTheme.headline1,
