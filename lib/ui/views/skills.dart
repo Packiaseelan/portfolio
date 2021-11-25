@@ -148,8 +148,9 @@ var skills = [
 
 var skillChartList = [
   SkillModel('Flutter', 80),
-  SkillModel('Dart', 75),
-  SkillModel('SwiftUI', 70),
+  SkillModel('Dart', 80),
+  SkillModel('SwiftUI', 60),
+  SkillModel('Swift', 50),
   SkillModel('Xamarin', 70),
 ];
 

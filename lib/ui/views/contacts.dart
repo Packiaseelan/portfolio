@@ -7,7 +7,7 @@ class ContactsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DesktopWidget(
-      title: 'CONTACT',
+      title: 'CONTACT ME',
       leftChild: Expanded(child: Container(color: Colors.red)),
       rightChild: Expanded(child: Container(color: Colors.yellow)),
     );

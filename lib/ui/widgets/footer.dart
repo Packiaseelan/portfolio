@@ -9,7 +9,7 @@ class FooterWidget extends StatelessWidget {
       padding: EdgeInsets.all(10.0),
       child: Center(
         child: Text.rich(
-          TextSpan(text: 'Flutter'),
+          TextSpan(text: 'Love it, do it, live it 😍'),
         ),
       ),
     );
