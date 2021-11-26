@@ -25,7 +25,14 @@ class AboutView extends StatelessWidget {
           ),
         ),
       ),
-      rightChild: Expanded(child: Container(color: Colors.yellow)),
+      rightChild: Expanded(
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: SingleChildScrollView(
+            child: DescriptionText(aboutDescription3),
+          ),
+        ),
+      ),
     );
   }
 }

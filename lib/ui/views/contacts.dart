@@ -2,13 +2,15 @@ import 'dart:html';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as material;
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps/google_maps.dart';
 import 'package:portfolio/data/temp_data.dart';
 import 'package:portfolio/ui/widgets/desktop_widget.dart';
 import 'package:portfolio/ui/widgets/spacer.dart';
 
 class ContactsView extends StatelessWidget {
-  const ContactsView({ Key? key }) : super(key: key);
+  const ContactsView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +23,13 @@ class ContactsView extends StatelessWidget {
 }
 
 class MapsWidget extends StatelessWidget {
-  const MapsWidget({ Key? key }) : super(key: key);
+  const MapsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return getMap();
   }
+
   Widget getMap() {
     String htmlId = "7";
 
@@ -59,7 +62,7 @@ class MapsWidget extends StatelessWidget {
 }
 
 class KeepInTouchWidget extends StatelessWidget {
-  const KeepInTouchWidget({ Key? key }) : super(key: key);
+  const KeepInTouchWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,15 +70,118 @@ class KeepInTouchWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-            'Keep in touch',
-            style: Theme.of(context).textTheme.headline4,
-          ),
-          const SpacerWidget.vertical(height: 20),
-          Text(
-            'Connect with me anywhere from the world virtually.',
-            style: Theme.of(context).textTheme.headline6,
-          ),
+          contactSubTitle,
+          style: Theme.of(context).textTheme.headline4,
+        ),
+        const SpacerWidget.vertical(height: 20),
+        Text(
+          contactDescription1,
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        const ContactDetails(),
+        Text(
+          contactDescription2,
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        const SocialMediaWidget()
       ],
+    );
+  }
+}
+
+class ContactDetails extends StatelessWidget {
+  const ContactDetails({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return material.Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ContactIconWidget(
+            title: contactPhoneNumber,
+            iconPath: contactCallIconPath,
+          ),
+          ContactIconWidget(
+            title: contactWhatsApp,
+            iconPath: contactWhatsappIconPath,
+          ),
+          ContactIconWidget(
+            title: contactEmail,
+            iconPath: contactMailIconPath,
+          ),
+          ContactIconWidget(
+            title: contactSkype,
+            iconPath: contactSkypeIconPath,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ContactIconWidget extends StatelessWidget {
+  final String title;
+  final String iconPath;
+  final Function? onPressed;
+
+  const ContactIconWidget({
+    Key? key,
+    required this.title,
+    required this.iconPath,
+    this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return material.Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextButton.icon(
+        onPressed: () => onPressed,
+        icon: SvgPicture.asset(
+          iconPath,
+          width: 30,
+        ),
+        label: Text(
+          title,
+          style: Theme.of(context).textTheme.subtitle2,
+        ),
+      ),
+    );
+  }
+}
+
+class SocialMediaWidget extends StatelessWidget {
+  const SocialMediaWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return material.Padding(
+      padding: const EdgeInsets.all(20),
+      child: Row(
+        children: [
+          SvgPicture.asset(
+            contactLinkedinIconPath,
+            width: 30,
+          ),
+          const SpacerWidget.horizontal(width: 20),
+          SvgPicture.asset(
+            contactFacebookIconPath,
+            width: 30,
+          ),
+          const SpacerWidget.horizontal(width: 20),
+          SvgPicture.asset(
+            contactInstagramIconPath,
+            width: 30,
+          ),
+          const SpacerWidget.horizontal(width: 20),
+          SvgPicture.asset(
+            contactTwitterIconPath,
+            width: 30,
+          ),
+        ],
+      ),
     );
   }
 }
