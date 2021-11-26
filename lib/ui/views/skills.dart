@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/config/app_theme.dart';
+import 'package:portfolio/data/temp_data.dart';
+import 'package:portfolio/model/skill_model.dart';
 import 'package:portfolio/ui/widgets/desktop_widget.dart';
 import 'package:portfolio/ui/widgets/spacer.dart';
 
@@ -8,10 +10,10 @@ class SkillsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DesktopWidget(
-      title: 'SKILLS',
-      leftChild: Expanded(child: SkillPoints()),
-      rightChild: Expanded(child: SkillChart()),
+    return DesktopWidget(
+      title: skillsTitle,
+      leftChild: const Expanded(child: SkillPoints()),
+      rightChild: const Expanded(child: SkillChart()),
     );
   }
 }
@@ -22,24 +24,35 @@ class SkillPoints extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: skills
-          .map((e) => Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Bullets(),
-                    Expanded(
-                      child: Text(
-                        e,
-                        style: Theme.of(context).textTheme.headline6,
-                      ),
-                    ),
-                  ],
-                ),
-              ))
-          .toList(),
+      children: skillPoints.map((e) => SkillPoint(e)).toList(),
+    );
+  }
+}
+
+class SkillPoint extends StatelessWidget {
+  final String point;
+  const SkillPoint(
+    this.point, {
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Bullets(),
+          Expanded(
+            child: Text(
+              point,
+              style: Theme.of(context).textTheme.headline6,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -69,9 +82,7 @@ class SkillChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [
-        ...skillChartList.map((e) => SkillWidget(skill: e)).toList(),
-      ],
+      children: skillChartList.map((e) => SkillWidget(skill: e)).toList(),
     );
   }
 }
@@ -136,27 +147,4 @@ class SkillWidget extends StatelessWidget {
       ),
     );
   }
-}
-
-var skills = [
-  'In-depth understanding of computer programming language and ability to code',
-  'Knowledge of most types of graphic design software, including object oriented management and metadata management software',
-  'Active listening skills to truly hear feedback and incorporate notes effectively',
-  'Ability to think creatively and find unique solutions to problems',
-  'Strong communication skills to effectively speak with people at any level of an organization from subordinates to supervisors',
-];
-
-var skillChartList = [
-  SkillModel('Flutter', 80),
-  SkillModel('Dart', 80),
-  SkillModel('SwiftUI', 60),
-  SkillModel('Swift', 50),
-  SkillModel('Xamarin', 70),
-];
-
-class SkillModel {
-  final String title;
-  final double percentage;
-
-  SkillModel(this.title, this.percentage);
 }

@@ -1,6 +1,7 @@
 import 'dart:js' as js;
 
 import 'package:flutter/material.dart';
+import 'package:portfolio/data/temp_data.dart';
 import 'package:portfolio/ui/widgets/description_text.dart';
 import 'package:portfolio/ui/widgets/spacer.dart';
 
@@ -24,7 +25,7 @@ class _DesktopHomeView extends StatelessWidget {
         Align(
           alignment: Alignment.bottomCenter,
           child: Image.asset(
-            'assets/images/photo.png',
+            homePhotoPath,
             width: MediaQuery.of(context).size.width * 0.5,
           ),
         ),
@@ -37,31 +38,29 @@ class _DesktopHomeView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'HELLO EVERYBODY, I AM',
+                    homeGreetingText,
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   const SpacerWidget.vertical(),
                   Text(
-                    'PACKIASEELAN',
+                    homeName,
                     style: Theme.of(context).textTheme.headline4,
                   ),
                   const SpacerWidget.vertical(),
                   Text(
-                    'Flutter Developer',
+                    homeRole,
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   const SpacerWidget.vertical(height: 50),
-                  const DescriptionText(
-                      'A Mobile application developer with 5+ years of experience in Software Development, Application Maintenance and Support and Project Execution in Android and iOS using Flutter and Xamarin.'),
+                  DescriptionText(homeSummary),
                   const SpacerWidget.vertical(height: 50),
                   OutlinedButton(
                     child: Text(
-                      'Resume',
+                      homeResume,
                       style: Theme.of(context).textTheme.subtitle2,
                     ),
                     onPressed: () {
-                      js.context.callMethod(
-                          'open', ['https://drive.google.com/file/d/16YmjqhkD09tRGnVxZSX8xu4CHePSiGGR/view?usp=sharing']);
+                      js.context.callMethod(homeOpen, [homeResumePath]);
                     },
                   )
                   // Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/data/temp_data.dart';
 import 'package:portfolio/ui/widgets/desktop_widget.dart';
 
 class ContactsView extends StatelessWidget {
@@ -7,7 +8,7 @@ class ContactsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DesktopWidget(
-      title: 'CONTACT ME',
+      title: contactTitle,
       leftChild: Expanded(child: Container(color: Colors.red)),
       rightChild: Expanded(child: Container(color: Colors.yellow)),
     );
