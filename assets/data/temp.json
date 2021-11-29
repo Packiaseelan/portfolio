@@ -1,0 +1,10 @@
+{
+    "app": {
+        "app_name": "Portfolio - Demo"
+    },
+    "home_view": {
+        "greeting" : "HELLO EVERYBODY, I AM",
+        "name" : "PACKIASEELAN S",
+        "role": "Flutter Developer"
+    }
+}
