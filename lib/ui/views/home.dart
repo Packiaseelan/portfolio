@@ -35,7 +35,12 @@ class HomeView extends StatelessWidget {
         ),
         const Spacer(),
         Text(
-          'A mobile application developer with 5+ years of experience in Software Deelopment, Applicaton Maintenance, Support and Project Execution in Android and iOS using Flutter and Xamarin.',
+          'Senior Mobile Developer with 10 years of experience architecting and shipping high-performance iOS
+and cross-platform applications for fintech, healthcare, and enterprise clients. Deep expertise in Swift,
+SwiftUI, Flutter, MVVM, and Clean Architecture with a strong track record of reducing authentication
+failures, accelerating feature delivery, and integrating complex systems such as Stripe payments,
+HealthKit, and Server-Driven UI. Recognized for owning end-to-end product delivery, mentoring peers,
+and driving scalable architecture decisions across global teams.',
           style: Theme.of(context).textTheme.bodyText2!.copyWith(height: 1.5),
           textAlign: TextAlign.justify,
         ),
