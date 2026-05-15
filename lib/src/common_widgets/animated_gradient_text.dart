@@ -44,7 +44,6 @@ class _AnimatedGradientTextState extends State<AnimatedGradientText>
           shaderCallback: (bounds) {
             return LinearGradient(
               colors: widget.colors,
-              stops: const [0.0, 0.5, 1.0],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               transform: GradientRotation(_controller.value * 2 * 3.14159),

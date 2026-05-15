@@ -8,7 +8,6 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.dark,
       colorScheme: const ColorScheme.dark(
-        background: AppColors.background,
         surface: AppColors.surface,
         primary: AppColors.accentPrimary,
         secondary: AppColors.accentSecondary,

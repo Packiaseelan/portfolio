@@ -1,9 +1,8 @@
-import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../../../common_widgets/glass_container.dart';
 import '../../../utils/constants.dart';
+import '../../../utils/link_launcher_service.dart';
 
 class ContactSection extends StatelessWidget {
   const ContactSection({super.key});
@@ -39,17 +38,17 @@ class ContactSection extends StatelessWidget {
                 _SocialButton(
                   icon: Icons.code,
                   label: "GitHub",
-                  onPressed: () => _launchUrl('https://github.com/Packiaseelan'),
+                  onPressed: () => LinkLauncherService.openUrl('https://github.com/Packiaseelan'),
                 ),
                 _SocialButton(
                   icon: Icons.work,
                   label: "LinkedIn",
-                  onPressed: () => _launchUrl('https://www.linkedin.com/in/packiaseelan14/'),
+                  onPressed: () => LinkLauncherService.openUrl('https://www.linkedin.com/in/packiaseelan14/'),
                 ),
                 _SocialButton(
                   icon: Icons.email,
                   label: "Email",
-                  onPressed: () => _launchUrl('mailto:packiaseelan14@gmail.com.com'),
+                  onPressed: () => LinkLauncherService.openEmail('packiaseelan14@gmail.com'),
                 ),
               ],
             ).animate().fadeIn(delay: 400.ms, duration: 800.ms),
@@ -59,13 +58,6 @@ class ContactSection extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _launchUrl(String url) async {
-    final uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    }
   }
 }
 
@@ -99,7 +91,7 @@ class _SocialButtonState extends State<_SocialButton> {
         iconSize: 32,
         color: _isHovered ? AppColors.accentPrimary : AppColors.textSecondary,
         style: IconButton.styleFrom(
-          backgroundColor: _isHovered ? AppColors.accentPrimary.withOpacity(0.1) : Colors.transparent,
+          backgroundColor: _isHovered ? AppColors.accentPrimary.withValues(alpha: 0.1) : Colors.transparent,
           hoverColor: Colors.transparent,
           highlightColor: Colors.transparent,
         ),
@@ -139,13 +131,9 @@ class _ResumeButtonState extends State<_ResumeButton> with SingleTickerProviderS
   }
 
   void _downloadResume() {
-    final anchor = html.AnchorElement(
-      href: 'assets/pdf/Packiaseelan_Resume.pdf',
-    )
-      ..target = '_blank'
-      ..download = 'Packiaseelan_Resume.pdf';
-
-    anchor.click();
+    // Removed dart:html dependency for cross-platform and WASM compatibility.
+    // Delegating to LinkLauncherService to handle the download/open natively.
+    LinkLauncherService.openResume();
   }
 
   @override
@@ -165,7 +153,7 @@ class _ResumeButtonState extends State<_ResumeButton> with SingleTickerProviderS
           scale: _scaleAnimation,
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
-            transform: Matrix4.identity()..translate(0.0, _isHovered ? -4.0 : 0.0),
+            transform: Matrix4.translationValues(0.0, _isHovered ? -4.0 : 0.0, 0.0),
             padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl, vertical: AppSpacing.lg),
             decoration: BoxDecoration(
               color: AppColors.glassBackground.withValues(alpha: _isHovered ? 0.15 : 0.05),

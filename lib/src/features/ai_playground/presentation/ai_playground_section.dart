@@ -146,7 +146,7 @@ class FetchUserMetricsUseCase {
           GlassContainer(
             height: 600,
             padding: const EdgeInsets.all(AppSpacing.lg),
-            border: Border.all(color: AppColors.accentPrimary.withOpacity(0.3)),
+            border: Border.all(color: AppColors.accentPrimary.withValues(alpha: 0.3)),
             child: Column(
               children: [
                 // Terminal Header
@@ -193,7 +193,7 @@ class FetchUserMetricsUseCase {
                       label: Text(key),
                       onPressed: _isTyping ? null : () => _handlePromptSelect(key),
                       backgroundColor: AppColors.surfaceHighlight,
-                      side: BorderSide(color: AppColors.accentPrimary.withOpacity(0.5)),
+                      side: BorderSide(color: AppColors.accentPrimary.withValues(alpha: 0.5)),
                       labelStyle: TextStyle(color: _isTyping ? AppColors.textSecondary : AppColors.accentPrimary),
                     );
                   }).toList(),
@@ -256,7 +256,7 @@ class _MessageBubble extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(AppSpacing.md),
                   decoration: BoxDecoration(
-                    color: AppColors.background.withOpacity(0.5),
+                    color: AppColors.background.withValues(alpha: 0.5),
                     borderRadius: BorderRadius.circular(AppRadius.sm),
                     border: Border.all(color: AppColors.border),
                   ),

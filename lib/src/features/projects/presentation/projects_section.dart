@@ -129,7 +129,7 @@ class _ProjectCardState extends State<_ProjectCard> {
       onExit: (_) => setState(() => _isHovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
-        transform: Matrix4.identity()..translate(0.0, _isHovered ? -10.0 : 0.0),
+        transform: Matrix4.translationValues(0.0, _isHovered ? -10.0 : 0.0, 0.0),
         child: GlassContainer(
           padding: const EdgeInsets.all(AppSpacing.xl),
           child: Stack(
@@ -172,9 +172,9 @@ class _ProjectCardState extends State<_ProjectCard> {
                       return Container(
                         padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: AppSpacing.sm),
                         decoration: BoxDecoration(
-                          color: AppColors.surfaceHighlight.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(AppRadius.md),
-                          border: Border.all(color: AppColors.border.withOpacity(0.5)),
+                          color: AppColors.surfaceHighlight.withValues(alpha: 0.5),
+                          borderRadius: BorderRadius.circular(AppRadius.sm),
+                          border: Border.all(color: AppColors.border.withValues(alpha: 0.5)),
                         ),
                         child: Text(
                           tech,

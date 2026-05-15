@@ -110,7 +110,7 @@ class _TimelineItem extends StatelessWidget {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.accentPrimary.withOpacity(0.5),
+                          color: AppColors.accentPrimary.withValues(alpha: 0.5),
                           blurRadius: 10,
                           spreadRadius: 2,
                         ),
