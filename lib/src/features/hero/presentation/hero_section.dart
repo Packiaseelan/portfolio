@@ -68,17 +68,6 @@ class HeroSection extends StatelessWidget {
                     const SizedBox(height: AppSpacing.xl),
                     
                     // Main Headline
-                    Text(
-                      "Hi,",
-                      style: TextStyle(
-                        fontSize: isDesktop ? 64 : 40,
-                        fontWeight: FontWeight.w800,
-                        height: 1.1,
-                        letterSpacing: isDesktop ? -2 : -1,
-                        color: Colors.white,
-                      ),
-                    ).animate().fadeIn(delay: 200.ms, duration: 800.ms).slideY(begin: 0.2, end: 0),
-                    
                     AnimatedGradientText(
                       text: "Packiaseelan Socretes",
                       style: TextStyle(
